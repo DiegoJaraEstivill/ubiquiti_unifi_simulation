@@ -1,0 +1,13 @@
+services:
+  desktop:
+    image: dorowu/ubuntu-desktop-lxde-vnc
+    container_name: desktop_vnc
+    restart: unless-stopped
+    ports:
+      - "6080:80"      # Acceso web (usar http://localhost:6080)
+      - "5900:5900"    # Acceso VNC opcional (si usas cliente VNC)
+    environment:
+      - TZ=America/Santiago
+      - USER=docker
+    volumes:
+      - ./data:/data
